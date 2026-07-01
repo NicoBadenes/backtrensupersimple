@@ -21,4 +21,5 @@ app.use("/health", healthRoutes);
 app.use("/materias", materiaRoutes);
 app.use("/relaciones", relacionesRoutes);
 
+
 export default app;
