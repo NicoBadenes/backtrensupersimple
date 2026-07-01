@@ -1,4 +1,4 @@
-@url = https://backtrensupersimple.vercel.app### Chequear Express
+@url = https://backtrensupersimple.vercel.app Chequear Express
 GET {{url}}/health
 
 ### Chequear Base de Datos
