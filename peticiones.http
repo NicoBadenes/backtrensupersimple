@@ -1,0 +1,107 @@
+@url = http://127.0.0.1:3000
+
+### Chequear Express
+GET {{url}}/health
+
+### Chequear Base de Datos
+GET {{url}}/health/db
+
+### ==============================
+### CRUD DE USUARIOS
+### ==============================
+
+### 1. CREAR UN USUARIO (STUDENT)
+POST {{url}}/users
+Content-Type: application/json
+
+{
+  "name": "Nicolás Badenes",
+  "email": "nicolasbadenes@epet12smandes.edu.ar",
+  "password_hash": "supersecreta123",
+  "role": "STUDENT"
+}
+
+### 2. CREAR UN PROFESOR (Para probar la relación con materias)
+POST {{url}}/users
+Content-Type: application/json
+
+{
+  "name": "Profesor de Programación",
+  "email": "profe@epet12smandes.edu.ar",
+  "password_hash": "supersecreta123",
+  "role": "PROFESSOR"
+}
+
+### 3. OBTENER TODOS LOS USUARIOS (GET)
+GET {{url}}/users
+
+### 4. OBTENER UN USUARIO POR ID (GET)
+GET {{url}}/users/1
+
+### 5. ACTUALIZAR UN USUARIO (PUT)
+PUT {{url}}/users/1
+Content-Type: application/json
+
+{
+  "name": "Nicolás B.",
+  "role": "STUDENT"
+}
+
+### 6. ELIMINAR UN USUARIO (DELETE)
+DELETE {{url}}/users/3
+
+
+### ==============================
+### CRUD DE MATERIAS (SUBJECTS)
+### ==============================
+
+### 1. CREAR UNA MATERIA
+POST {{url}}/materias
+Content-Type: application/json
+
+{
+  "name": "Construcción de Software",
+  "description": "Trabajo práctico integrador",
+  "professor_id": 2
+}
+
+### 2. OBTENER TODAS LAS MATERIAS
+GET {{url}}/materias
+
+### 3. OBTENER MATERIA POR ID
+GET {{url}}/materias/1
+
+### 4. ACTUALIZAR UNA MATERIA
+PUT {{url}}/materias/1
+Content-Type: application/json
+
+{
+  "name": "Análisis Matemático",
+  "description": "Nueva descripción actualizada"
+}
+
+### 5. ELIMINAR UNA MATERIA
+DELETE {{url}}/materias/1
+
+
+### ==============================
+### INSCRIPCIONES (ENROLLMENTS)
+### ==============================
+
+### 1. INSCRIBIR ALUMNO A MATERIA
+POST {{url}}/relaciones/cursa
+Content-Type: application/json
+
+{
+  "student_id": 1,
+  "subject_id": 1
+}
+
+### 2. PROBAR RESTRICCIÓN DE INSCRIPCIÓN (OPCIONAL)
+POST {{url}}/relaciones/cursa
+Content-Type: application/json
+
+{
+  "student_id": 1,
+  "subject_id": 1
+}
