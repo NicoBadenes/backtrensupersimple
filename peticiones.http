@@ -1,4 +1,4 @@
-@url = http://127.0.0.1:3000
+@url = [https://backtrensupersimple.vercel.app](https://backtrensupersimple.vercel.app)
 
 ### Chequear Express
 GET {{url}}/health
